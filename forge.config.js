@@ -27,10 +27,10 @@ module.exports = {
       name: '@electron-forge/publisher-github',
       config: {
         repository: {
-          owner: 'gaetanvan',
-          name: 'FindManga',
+          owner: 'SamihaWahsousse',
+          name: 'foodDesktopApplication',
         },
-        authToken : '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',
+        authToken : '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',
         prerelease: false,
         draft: true,
       },

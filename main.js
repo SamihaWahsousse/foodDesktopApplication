@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
+if(require('electron-squirrel-startup')) return;
 require('update-electron-app')()
 
 const electronReload = require('electron-reload');
@@ -28,27 +29,12 @@ app.on('window-all-closed', () => {
 
 
 // main.js
-const mainWindow = new BrowserWindow()
+//const mainWindow = new BrowserWindow()
 
 // In this example, only windows with the `about:blank` url will be created.
 // All other urls will be blocked.
-mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-  if (url === 'about:blank') {
-    return {
-      action: 'allow',
-      overrideBrowserWindowOptions: {
-        frame: false,
-        fullscreenable: false,
-        backgroundColor: 'black',
-        webPreferences: {
-          preload: 'my-child-window-preload-script.js'
-        }
-      }
-    }
-  }
-  return { action: 'deny' }
-})
 
-// renderer process (mainWindow)
+
+/* renderer process (mainWindow)
 const childWindow = window.open('', 'modal')
-childWindow.document.write('<h1>Hello</h1>')
+childWindow.document.write('<h1>Hello</h1>')*/

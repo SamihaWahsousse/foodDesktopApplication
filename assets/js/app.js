@@ -17,10 +17,6 @@ getMeals(searchInput);
 userInput.value ="";
 });
 
-
-
-   
-
 async function getMeals(searchInput){
     let urlAPI   =` https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
 
@@ -62,7 +58,6 @@ async function getMeals(searchInput){
                     alert("recuperer tab food "+ foodItem.strArea);
                 }
             
-                
             });
 
             console.log(idMeall);

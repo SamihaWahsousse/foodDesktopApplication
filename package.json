@@ -1,7 +1,7 @@
 {
-  "name": "FoodUniverse",
-  "version": "1.0.2",
-  "description": "app for finding manga you need",
+  "name": "fooduniverse",
+  "version": "1.0.7",
+  "description": "app for finding food meals and recipes",
   "main": "main.js",
   "type": "commonjs",
   "scripts": {
@@ -18,22 +18,22 @@
       {
         "provider": "github",
         "owner": "SamihaWahsousse",
-        "repo": "https://github.com/gaetanvan/FindManga"
+        "repo": "https://github.com/SamihaWahsousse/foodDesktopApplication.git"
       }
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gaetanvan/FindManga"
+    "url": "https://github.com/SamihaWahsousse/foodDesktopApplication"
   },
-  "author": "gaetanv",
+  "author": "samiha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/gaetanvan/FindManga/issues"
+    "url": "https://github.com/SamihaWahsousse/foodDesktopApplication/issues"
   },
-  "homepage": "https://github.com/gaetanvan/FindManga#readme",
+  "homepage": "https://github.com/SamihaWahsousse/foodDesktopApplication#readme",
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.4",
+    "@electron-forge/cli": "^6.0.5",
     "@electron-forge/maker-deb": "^6.0.4",
     "@electron-forge/maker-rpm": "^6.0.4",
     "@electron-forge/maker-squirrel": "^6.0.4",
