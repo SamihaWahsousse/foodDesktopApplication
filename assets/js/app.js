@@ -60,8 +60,6 @@ async function getMeals(searchInput){
 
                     }
                     alert("recuperer tab food "+ foodItem.strArea);
-
-
                 }
             
                 
