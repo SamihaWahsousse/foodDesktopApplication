@@ -24,15 +24,19 @@
         <!--nav bar de gauche-->
         <div class="col-2 search-container">
           nav bare gauche
-          <!--<form class="d-flex flex-column">-->
-          <input
-            type="text"
-            placeholder="Type a recipe or a dish name here..."
-            id="searchInput"
-          />
+          <form
+            class="d-flex flex-column"
+            id="formSearch"
+            name="formMealSearch"
+          >
+            <input
+              type="text"
+              placeholder="Type a recipe or a dish name here..."
+              id="searchInput"
+            />
 
-          <button id="search_btn">Search</button>
-          <!-- </form> -->
+            <button id="search_btn" name="myButton" value="">Search</button>
+          </form>
         </div>
         <div class="col-10">
           <h3 class="text-center">les cartes des repas</h3>
@@ -52,16 +56,77 @@
                   <h5 class="card-title" id="food_title" data-food-name>
                     food name
                   </h5>
-                  <a href="#" class="btn btn-primary">food recepie</a>
+                  <a
+                    type="button"
+                    title="test modal title"
+                    name="showModalButton"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#foodRecipeModal"
+                    data-food-recepie
+                    >food recepie</a
+                  >
                 </div>
               </div>
             </template>
           </div>
         </div>
       </div>
+
+      <div
+        class="modal fade"
+        id="foodRecipeModal"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Food Name :
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              ici le'image du food + en bas les ingrédient + en bas la méthode
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Deserunt, numquam fuga? Aliquid eaque libero, alias accusantium
+              quidem nostrum numquam similique incidunt saepe pariatur! Animi
+              porro minus delectus esse voluptas pariatur. Ipsa magnam veniam
+              porro esse consequuntur recusandae quibusdam. Commodi aliquid
+              sequi voluptate in voluptatum deserunt temporibus, cum hic vero
+              doloribus nobis mollitia doloremque, corporis id debitis esse.
+              Hic, vel nulla. Earum explicabo eius quasi? Reiciendis neque
+              quaerat fuga, quam necessitatibus blanditiis laboriosam aut culpa,
+              id alias esse voluptatem consequatur exercitationem cum, nostrum
+              voluptas amet! Magni dicta at mollitia doloribus rem. Animi maxime
+              exercitationem facilis hic necessitatibus nesciunt debitis!
+              Consequatur nemo, saepe iure veniam alias tempore iste.
+              Accusantium nam unde quod debitis, ullam eligendi consequatur
+              quidem praesentium sint enim aspernatur. Voluptatem?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!--Test de buton normal <input id="searchInput" type="text" /> 
-    <button id="search_btn">Search</button>-->
   </body>
 
   <script src="./renderer.js"></script>

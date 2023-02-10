@@ -25,3 +25,30 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
+
+
+// main.js
+const mainWindow = new BrowserWindow()
+
+// In this example, only windows with the `about:blank` url will be created.
+// All other urls will be blocked.
+mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  if (url === 'about:blank') {
+    return {
+      action: 'allow',
+      overrideBrowserWindowOptions: {
+        frame: false,
+        fullscreenable: false,
+        backgroundColor: 'black',
+        webPreferences: {
+          preload: 'my-child-window-preload-script.js'
+        }
+      }
+    }
+  }
+  return { action: 'deny' }
+})
+
+// renderer process (mainWindow)
+const childWindow = window.open('', 'modal')
+childWindow.document.write('<h1>Hello</h1>')
