@@ -1,0 +1,82 @@
+  /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+
+*,*::before, *::after{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    background: white;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+.card{ 
+    /* width: 200px; */
+    /* height: 18rem; */
+    max-width: 250px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: .25rem;
+    margin-top: 1rem;
+    border: none;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+
+#food_img{
+    margin-bottom: .5rem;
+    width  : 10px;
+    height : 150px;
+    transition: 400ms transform ease-in-out; 
+
+   
+}
+
+.card:hover > img {
+ transform:  scale(1.025);
+
+}
+
+button {
+    background: hsl(17, 72%, 47%);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: .5em .75em;
+    border-radius: .25em ;
+    cursor: pointer;
+}
+
+button:hover, button:focus{
+    background: hsl(17, 72%, 57%);
+
+}
+
+button[name="myButton"] {
+    background: hsl(17, 72%, 57%);
+  }
+
+
+
+
+
+
+
+
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+    color: #FFFFFF;
+    cursor: pointer;
+
+
+  
+  }
+
+
+
+

@@ -14,15 +14,21 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+    <!-- /* Open sans google font */ -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <style></style>
+    <link rel="stylesheet" href="./assets/css/cards.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <header></header>
   <body>
     <div class="container-fluid">
       <div class="row">
         <div class="col-2 search-container">
-          nav bare gauche
           <form
             class="d-flex flex-column"
             id="formSearch"
@@ -39,6 +45,8 @@
         </div>
         <div class="col-10">
           <h3 class="text-center">les cartes des repas version 1.0.7</h3>
+
+          <!-- Here my FOOD CARD -->
           <div
             class="container-fluid d-flex flex-md-row flex-wrap justify-content-between"
             data-food-cards-container
@@ -55,16 +63,16 @@
                   <h5 class="card-title" id="food_title" data-food-name>
                     food name
                   </h5>
-                  <a
-                    type="button"
-                    title="test modal title"
+                  <button
+                    title="food recipe"
                     name="showModalButton"
-                    class="btn btn-primary"
+                    class="recepie-btn"
                     data-bs-toggle="modal"
                     data-bs-target="#foodRecipeModal"
                     data-food-recepie
-                    >food recipe</a
                   >
+                    food recipe
+                  </button>
                 </div>
               </div>
             </template>

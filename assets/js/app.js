@@ -34,7 +34,7 @@ async function getMeals(searchInput){
     foodCard.querySelector("div.card-body > .card-title").innerText = meal.strMeal; 
     //add meal name + ingredients in the modal 
     // foodCard.querySelector("div.card-body > a").setAttribute("title", meal.strMeal); 
-    foodCard.querySelector("div.card-body > a").setAttribute("id", meal.idMeal);
+    foodCard.querySelector("div.card-body > button").setAttribute("id", meal.idMeal);
     foodCardContainer.append(foodCard);  
     //console.log(foodCard);
  
