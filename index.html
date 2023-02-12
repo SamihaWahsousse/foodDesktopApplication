@@ -21,7 +21,6 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <!--nav bar de gauche-->
         <div class="col-2 search-container">
           nav bare gauche
           <form
@@ -64,7 +63,7 @@
                     data-bs-toggle="modal"
                     data-bs-target="#foodRecipeModal"
                     data-food-recepie
-                    >food recepie</a
+                    >food recipe</a
                   >
                 </div>
               </div>
@@ -72,6 +71,7 @@
           </div>
         </div>
       </div>
+      <!-- Recipe MODAL -->
 
       <div
         class="modal fade"
@@ -84,10 +84,9 @@
       >
         <div class="modal-dialog modal-xl">
           <div class="modal-content">
+            <!-- <template ingredients-data-template> -->
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">
-                Food Name :
-              </h1>
+              <h2 class="modal-title fs-5" id="staticBackdropLabel">pizza</h2>
               <button
                 type="button"
                 class="btn-close"
@@ -95,24 +94,114 @@
                 aria-label="Close"
               ></button>
             </div>
+
             <div class="modal-body">
-              ici le'image du food + en bas les ingrédient + en bas la méthode
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              Deserunt, numquam fuga? Aliquid eaque libero, alias accusantium
-              quidem nostrum numquam similique incidunt saepe pariatur! Animi
-              porro minus delectus esse voluptas pariatur. Ipsa magnam veniam
-              porro esse consequuntur recusandae quibusdam. Commodi aliquid
-              sequi voluptate in voluptatum deserunt temporibus, cum hic vero
-              doloribus nobis mollitia doloremque, corporis id debitis esse.
-              Hic, vel nulla. Earum explicabo eius quasi? Reiciendis neque
-              quaerat fuga, quam necessitatibus blanditiis laboriosam aut culpa,
-              id alias esse voluptatem consequatur exercitationem cum, nostrum
-              voluptas amet! Magni dicta at mollitia doloribus rem. Animi maxime
-              exercitationem facilis hic necessitatibus nesciunt debitis!
-              Consequatur nemo, saepe iure veniam alias tempore iste.
-              Accusantium nam unde quod debitis, ullam eligendi consequatur
-              quidem praesentium sint enim aspernatur. Voluptatem?
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="" width="250" height="300" alt="" meal-image />
+                  </div>
+                  <div class="col-md-9">
+                    <h3>Ingredients</h3>
+                    <div class="row test" modal-ingredients-container>
+                      <template modal-ingredient-detail>
+                        <div class="col-md-3">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                          80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div>
+                      </template>
+                      <!--
+                        <div class="col-md-2">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                        80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div>
+
+                        <div class="col-md-2">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                          80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div>
+
+                        <div class="col-md-2">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                            80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div>
+
+                        <div class="col-md-2">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                            80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div>
+
+                        <div class="col-md-2">
+                          <figure class="ingredient">
+                            <img
+                              src="./olive oil.png"
+                              width="80"
+                              height="
+                            80"
+                              alt="olive oil"
+                            />
+                            <figcaption>150g olive oil</figcaption>
+                          </figure>
+                        </div> -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md ms-auto" id="meal-instruction-detail">
+                    <h3>Instruction</h3>
+                    <p></p>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 ms-auto">
+                    Youtube link :
+                    <a alt="youtube link" youtube-link></a>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- </template> -->
             <div class="modal-footer">
               <button
                 type="button"
@@ -121,7 +210,6 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">Understood</button>
             </div>
           </div>
         </div>
