@@ -50,17 +50,17 @@ async function getMeals(searchInput){
 
            // apiResult.meals.forEach(foodItem => {
 
-            // Remplacement d'une boucle foreach par une bouclke for pour pouvoir faire un break si la recette est trouvée.
+            // Remplacement d'une boucle foreach par une boucle for pour pouvoir faire un break si la recette est trouvée.
             for(let j = 0; j < apiResult.meals.length ; j++)
             {   
                 let foodItem = apiResult.meals[j];
-                console.log(foodItem);
+                document.querySelector("[modal-food-title]").innerText = foodItem.strMeal;
                 if (idMeall == foodItem.idMeal){
                     ingredientsContainer.innerHTML = "";
                     for(let i=1;i<=20;i++){
                         if (foodItem[`strMeasure${i}`] && foodItem[`strIngredient${i}`])
                         {
-                            console.log(" Ingredients et mesure: "+foodItem[`strMeasure${i}`]+" "+foodItem[`strIngredient${i}`]);                            
+                            // console.log(" Ingredients et mesure: "+foodItem[`strMeasure${i}`]+" "+foodItem[`strIngredient${i}`]);                            
                             document.querySelector("[meal-image]").setAttribute("src", foodItem["strMealThumb"]);
                             const ingredientDetail = ingredientDetailTemplate.content.cloneNode(true).querySelector("div");
                             ingredientDetail.querySelector("img").setAttribute("src", "https://www.themealdb.com/images/ingredients/" + foodItem[`strIngredient${i}`] +".png");
@@ -69,7 +69,7 @@ async function getMeals(searchInput){
                             ingredientsContainer.append(ingredientDetail);
                             document.querySelector("#meal-instruction-detail > p").innerText = foodItem.strInstructions;
                             document.querySelector("[youtube-link]").setAttribute("href", foodItem.strYoutube);
-                            document.querySelector("[youtube-link]").innerText = foodItem.strYoutube;
+                            // document.querySelector("[youtube-link]").innerText = foodItem.strYoutube;
                         }
                         else {
                             break;
@@ -84,29 +84,6 @@ async function getMeals(searchInput){
 
 }
 
-// à partir de l'id Meal 
-//récuperer les meal name 
-// récupérer les ingredients de chaque meal 
-//récupérer les quantités de chaque ingrédient 
-//récuperer les photos de chaque ingrédient
 
 
 
-
-
-
-/*
-async function getAllMeals(){
-    let urlAPIAllFood   =` https://www.themealdb.com/api/json/v1/1/search.php?s=`
-    const apiAllFetch   = await fetch(urlAPIAllFood)
-    const apiAllResult  = await apiAllFetch.json()
-    console.log(apiAllResult);
-
-}
-
-document.getElementById
-searchBtn.addEventListener("click", (e)=>{
-    e.preventDefault();
-   getMeals();
-   });
-getAllMeals();*/
