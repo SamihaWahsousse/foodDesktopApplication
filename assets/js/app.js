@@ -1,89 +1,119 @@
-let searchBtn           = document.getElementById("formSearch");
-let userInput           = document.getElementById("searchInput");
-let btnEmpty            = document.formMealSearch.myButton.value;
-let foodImage           = document.querySelector("[data-food-image]");
-const foodName          = document.querySelector("[data-food-name]");   
-const foodCardTemplate  = document.querySelector("[data-food-template]");
-const foodCardContainer = document.querySelector("[data-food-cards-container]");
-const foodRecepie       = document.querySelector("[data-food-recepie]");
+let searchBtn = document.getElementById("formSearch");
+let userInput = document.getElementById("searchInput");
+let btnEmpty = document.formMealSearch.myButton.value;
+let foodImage = document.querySelector("[data-food-image]");
+const foodName = document.querySelector("[data-food-name]");
+const foodCardTemplate = document.querySelector(
+	"[data-food-template]"
+);
+const foodCardContainer = document.querySelector(
+	"[data-food-cards-container]"
+);
+const foodRecepie = document.querySelector("[data-food-recepie]");
 
-const ingredientsContainer = document.querySelector("[modal-ingredients-container]");
-const ingredientDetailTemplate = document.querySelector("[modal-ingredient-detail]");
+const ingredientsContainer = document.querySelector(
+	"[modal-ingredients-container]"
+);
+const ingredientDetailTemplate = document.querySelector(
+	"[modal-ingredient-detail]"
+);
 
-
-searchBtn.addEventListener("submit", (e)=>{
-    e.preventDefault();
-let searchInput     = userInput.value;
-getMeals(searchInput);
-userInput.value ="";
+//add listner sur le bouton de search
+searchBtn.addEventListener("submit", (e) => {
+	e.preventDefault();
+	let searchInput = userInput.value;
+	getMeals(searchInput);
+	userInput.value = "";
 });
 
-async function getMeals(searchInput){
-    let urlAPI   =` https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
+// fetch API
+async function getMeals(searchInput) {
+	let urlAPI = ` https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
+	const apiFetch = await fetch(urlAPI);
+	const apiResult = await apiFetch.json();
 
-    const apiFetch = await fetch(urlAPI)
-    const apiResult = await apiFetch.json()
-    //array meals []console.log(apiResult);
-    let modalMealName       = document.getElementById("staticBackdropLabel");
-    foodCardContainer.innerHTML="";
-    console.log(apiResult.meals[0]);
-    apiResult.meals.forEach ((meal) => {
-   //console.log(meal);
-    const foodCard = foodCardTemplate.content.cloneNode(true).querySelector("div");
-    foodCard.querySelector("img").setAttribute("src",meal.strMealThumb);
-    foodCard.querySelector("div.card-body > .card-title").innerText = meal.strMeal; 
-    //add meal name + ingredients in the modal 
-    // foodCard.querySelector("div.card-body > a").setAttribute("title", meal.strMeal); 
-    foodCard.querySelector("div.card-body > button").setAttribute("id", meal.idMeal);
-    foodCardContainer.append(foodCard);  
-    //console.log(foodCard);
- 
-});
+	//array meals []console.log(apiResult);
+	let modalMealName = document.getElementById("staticBackdropLabel");
+	foodCardContainer.innerHTML = "";
+	//console.log(apiResult.meals[0]);
+	apiResult.meals.forEach((meal) => {
+		//console.log(meal);
+		const foodCard = foodCardTemplate.content
+			.cloneNode(true)
+			.querySelector("div");
+		foodCard
+			.querySelector("img")
+			.setAttribute("src", meal.strMealThumb);
+		foodCard.querySelector("div.card-body > .card-title").innerText =
+			meal.strMeal;
+		//add meal name + ingredients in the modal
+		// foodCard.querySelector("div.card-body > a").setAttribute("title", meal.strMeal);
+		foodCard
+			.querySelector("div.card-body > button")
+			.setAttribute("id", meal.idMeal);
+		foodCardContainer.append(foodCard);
+		//console.log(foodCard);
+	});
 
-    let showModalBtns        = document.getElementsByName("showModalButton");
-    let modalTitle           = document.getElementById("staticBackdropLabel");
-    for (var i=0; i < showModalBtns.length; i++) {
-        showModalBtns[i].addEventListener("click", (e)=>{
-            //alert(e.target.id);
-          //  alert("test" +.strIngredient2);
-            let idMeall             = e.target.id;
+	let showModalBtns = document.getElementsByName("showModalButton");
+	let modalTitle = document.getElementById("staticBackdropLabel");
 
-           // apiResult.meals.forEach(foodItem => {
+	for (var i = 0; i < showModalBtns.length; i++) {
+		showModalBtns[i].addEventListener("click", (e) => {
+			//alert(e.target.id);
+			//alert("test" +.strIngredient2);
+			let idMeall = e.target.id;
 
-            // Remplacement d'une boucle foreach par une boucle for pour pouvoir faire un break si la recette est trouvée.
-            for(let j = 0; j < apiResult.meals.length ; j++)
-            {   
-                let foodItem = apiResult.meals[j];
-                document.querySelector("[modal-food-title]").innerText = foodItem.strMeal;
-                if (idMeall == foodItem.idMeal){
-                    ingredientsContainer.innerHTML = "";
-                    for(let i=1;i<=20;i++){
-                        if (foodItem[`strMeasure${i}`] && foodItem[`strIngredient${i}`])
-                        {
-                            // console.log(" Ingredients et mesure: "+foodItem[`strMeasure${i}`]+" "+foodItem[`strIngredient${i}`]);                            
-                            document.querySelector("[meal-image]").setAttribute("src", foodItem["strMealThumb"]);
-                            const ingredientDetail = ingredientDetailTemplate.content.cloneNode(true).querySelector("div");
-                            ingredientDetail.querySelector("img").setAttribute("src", "https://www.themealdb.com/images/ingredients/" + foodItem[`strIngredient${i}`] +".png");
-                            ingredientDetail.querySelector("img").setAttribute("alt", foodItem[`strIngredient${i}`]);
-                            ingredientDetail.querySelector("figcaption").innerText = foodItem[`strMeasure${i}`] + " " + foodItem[`strIngredient${i}`];
-                            ingredientsContainer.append(ingredientDetail);
-                            document.querySelector("#meal-instruction-detail > p").innerText = foodItem.strInstructions;
-                            document.querySelector("[youtube-link]").setAttribute("href", foodItem.strYoutube);
-                            // document.querySelector("[youtube-link]").innerText = foodItem.strYoutube;
-                        }
-                        else {
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-
-    });
+			// Remplacement d'une boucle foreach par une boucle for pour pouvoir faire un break si la recette est trouvée.
+			for (let j = 0; j < apiResult.meals.length; j++) {
+				let foodItem = apiResult.meals[j];
+				document.querySelector("[modal-food-title]").innerText =
+					foodItem.strMeal;
+				if (idMeall == foodItem.idMeal) {
+					ingredientsContainer.innerHTML = "";
+					for (let i = 1; i <= 20; i++) {
+						if (
+							foodItem[`strMeasure${i}`] &&
+							foodItem[`strIngredient${i}`]
+						) {
+							// console.log(" Ingredients et mesure: "+foodItem[`strMeasure${i}`]+" "+foodItem[`strIngredient${i}`]);
+							document
+								.querySelector("[meal-image]")
+								.setAttribute("src", foodItem["strMealThumb"]);
+							const ingredientDetail =
+								ingredientDetailTemplate.content
+									.cloneNode(true)
+									.querySelector("div");
+							ingredientDetail
+								.querySelector("img")
+								.setAttribute(
+									"src",
+									"https://www.themealdb.com/images/ingredients/" +
+										foodItem[`strIngredient${i}`] +
+										".png"
+								);
+							ingredientDetail
+								.querySelector("img")
+								.setAttribute("alt", foodItem[`strIngredient${i}`]);
+							ingredientDetail.querySelector("figcaption").innerText =
+								foodItem[`strMeasure${i}`] +
+								" " +
+								foodItem[`strIngredient${i}`];
+							ingredientsContainer.append(ingredientDetail);
+							document.querySelector(
+								"#meal-instruction-detail > p"
+							).innerText = foodItem.strInstructions;
+							document
+								.querySelector("[youtube-link]")
+								.setAttribute("href", foodItem.strYoutube);
+							// document.querySelector("[youtube-link]").innerText = foodItem.strYoutube;
+						} else {
+							break;
+						}
+					}
+					break;
+				}
+			}
+		});
+	}
 }
-
-}
-
-
-
-

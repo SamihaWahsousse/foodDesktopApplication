@@ -30,7 +30,7 @@ module.exports = {
           owner: 'SamihaWahsousse',
           name: 'foodDesktopApplication',
         },
-        authToken : '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',
+        authToken : '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',
         prerelease: false,
         draft: true,
       },

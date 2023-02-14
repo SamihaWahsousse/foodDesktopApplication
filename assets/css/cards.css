@@ -1,130 +1,129 @@
-  /* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap'); */
 
-*,*::before, *::after{
-    font-family: 'Open Sans', sans-serif;
+*,
+*::before,
+*::after {
+	font-family: "Open Sans", sans-serif;
 }
-body{
-    background: white;
-    font-family: 'Open Sans', sans-serif;
-    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/img\ \(2\).jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    height: 100vh;
-  }
-
- .welcomeTitle{
-    height: 40px;
-    color: white;
-    margin-top: 1rem;
- }
- .mainContainerCards{
-    width: 85rem;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-} 
-
-.card{ 
-    /* width: 200px; */
-    /* height: 18rem; */
-    max-width: 250px;
-    /* background-color: white; */
-    padding: 1rem;
-    border-radius: .25rem;
-    margin-top: 1rem;
-    border: none;
-    box-shadow: 0 0 5px rgba(0,0,0,.2);
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    align-items: flex-start;
-    background-color: rgba(0,0,0,.5);
+body {
+	background: white;
+	font-family: "Open Sans", sans-serif;
+	background-image: linear-gradient(
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.5)
+		),
+		url(../images/img\\(2\).jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
 }
 
+.welcomeTitle {
+	height: 40px;
+	color: white;
+	margin-top: 1rem;
+}
+.mainContainerCards {
+	width: 85rem;
+	align-items: center;
+	justify-content: center;
+	margin-top: 40px;
+}
 
-#food_img{
-    margin-bottom: .5rem;
-    width  : 10px;
-    height : 150px;
-    transition: 400ms transform ease-in-out; 
-   
+.card {
+	/* width: 200px; */
+	/* height: 18rem; */
+	max-width: 250px;
+	/* background-color: white; */
+	padding: 1rem;
+	border-radius: 0.25rem;
+	margin-top: 1rem;
+	border: none;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 2rem;
+	align-items: flex-start;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+#food_img {
+	margin-bottom: 0.5rem;
+	width: 10px;
+	height: 150px;
+	transition: 400ms transform ease-in-out;
 }
 
 .card:hover > img {
- transform:  scale(1.025);
-
+	transform: scale(1.025);
 }
-.card-body h5{
-    color:white;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+.card-body h5 {
+	color: white;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman",
+		serif;
 }
 
 button {
-    background: hsl(17, 72%, 47%);
-    color: white;
-    border: none;
-    font-size: 1rem;
-    padding: .5em .75em;
-    border-radius: .25em ;
-    cursor: pointer;
+	background: hsl(17, 72%, 47%);
+	color: white;
+	border: none;
+	font-size: 1rem;
+	padding: 0.5em 0.75em;
+	border-radius: 0.25em;
+	cursor: pointer;
 }
 
-button:hover, button:focus{
-    background: hsl(17, 72%, 57%);
-
+button:hover,
+button:focus {
+	background: hsl(17, 72%, 57%);
 }
 
-  .search {
-    width: 100%;
-    position: relative;
-    display: flex;
-    color: #FFFFFF;
-    cursor: pointer; 
-  }
+.search {
+	width: 100%;
+	position: relative;
+	display: flex;
+	color: #ffffff;
+	cursor: pointer;
+}
 
-  #formSearch{
-    width: 100%;
-    max-width: 700px;
-    background: rgba(255,255,255,0.2);
-    display: flex;
-    align-items: center;
-    border-radius: 60px;
-    backdrop-filter: blur(4px) saturate(200%);
+#formSearch {
+	width: 100%;
+	max-width: 700px;
+	background: rgba(255, 255, 255, 0.2);
+	display: flex;
+	align-items: center;
+	border-radius: 60px;
+	backdrop-filter: blur(4px) saturate(200%);
+}
 
-  }
+#formSearch input {
+	background: transparent;
+	flex: 1;
+	border: 0;
+	font-size: 24px;
+	padding: 10px;
+	outline: none;
+	color: #2d5a27;
+}
 
-  #formSearch input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    font-size: 24px ;
-    padding: 10px;
-    outline: none;
-    color: #2D5A27;
-  }
+::placeholder {
+	/* color:  #2D5A27; */
+	color: white;
+	text-align: justify;
+}
 
-  ::placeholder{
-    /* color:  #2D5A27; */
-    color: white;
-    text-align:justify
-  }
-  
 button[name="myButton"] {
-    background: hsl(17, 72%, 57%);
-    border: 0;
-    border-radius: 60px;
-    width: 40px;
-    height: 40px;
-    padding: 0px;
-    margin-left: 5px;
-    
+	background: hsl(17, 72%, 57%);
+	border: 0;
+	border-radius: 60px;
+	width: 40px;
+	height: 40px;
+	padding: 0px;
+	margin-left: 5px;
+}
 
-  }
-
-  #search_btn img{
-    width: 25px;
-    
-
-  }
+#search_btn img {
+	width: 25px;
+}

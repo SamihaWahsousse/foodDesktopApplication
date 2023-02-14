@@ -1,6 +1,6 @@
 {
   "name": "fooduniverse",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "app for finding food meals and recipes",
   "main": "main.js",
   "type": "commonjs",
