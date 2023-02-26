@@ -1,6 +1,6 @@
 const func = async () => {
-    const response = await window.versions.ping()
-    console.log(response) // prints out 'pong'
-}
+	const response = await window.versions.samiha();
+	console.log(response); // prints out 'pong'
+};
 
-func()
+func();

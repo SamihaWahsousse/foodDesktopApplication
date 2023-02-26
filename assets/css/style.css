@@ -10,7 +10,7 @@
 	font-size: 20px;
 }
 
-/*Resize the wrap to see the search bar change!*/
+/*Resize the wrap to see the search bar change*/
 .wrap {
 	width: 30%;
 	position: absolute;
@@ -19,18 +19,23 @@
 	transform: translate(-50%, -50%);
 }
 
-/* style card ingredients in modal meal */
+/* Style the modal */
+.modal-content {
+	background: #66482c;
+	color: white;
+}
 
+/* style card ingredients in modal */
 .ingredient {
 	display: flex;
 	flex-flow: column;
 	padding: 5px;
 	max-width: 220px;
 	margin: auto;
+	text-align: center;
 }
 
-/* Styling the figCaption */
-
+/* Styling the figCaption of each ingredients meal*/
 figcaption {
 	background: hsl(17, 72%, 47%);
 	color: #fff;
@@ -39,20 +44,16 @@ figcaption {
 	text-align: center;
 }
 
-.ingredient {
-	text-align: center;
-}
-
-.modal-content {
-	background: #66482c;
-	color: white;
-}
-
+/* Style the welcome title */
 h3 {
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-weight: bolder;
 }
 
+/* style the youtube button and link */
 #youtubeIcon {
 	color: red;
+}
+.recipeLink:hover {
+	color: wheat;
 }

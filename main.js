@@ -1,4 +1,9 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const {
+	app,
+	BrowserWindow,
+	ipcMain,
+	Notification,
+} = require("electron");
 const path = require("path");
 
 if (require("electron-squirrel-startup")) return;
@@ -15,24 +20,30 @@ const createWindow = () => {
 			preload: path.join(__dirname, "preload.js"),
 		},
 	});
-	ipcMain.handle("ping", () => "pong");
+	ipcMain.handle("samiha", () => "samiha");
 	win.loadFile("index.html");
 };
 
-app.whenReady().then(() => {
-	createWindow();
-});
+//Show notification
+const NOTIFICATION_TITLE = "New Notification";
+const NOTIFICATION_BODY =
+	"🥣🥗 Welcome to foodUniverse application 🍕🍝!";
+
+function showNotification() {
+	new Notification({
+		title: NOTIFICATION_TITLE,
+		body: NOTIFICATION_BODY,
+	}).show();
+}
+
+app.whenReady().then(createWindow).then(showNotification);
 
 app.on("window-all-closed", () => {
 	if (process.platform !== "darwin") app.quit();
 });
 
-// main.js
-//const mainWindow = new BrowserWindow()
-
-// In this example, only windows with the `about:blank` url will be created.
-// All other urls will be blocked.
-
-/* renderer process (mainWindow)
-const childWindow = window.open('', 'modal')
-childWindow.document.write('<h1>Hello</h1>')*/
+app.on("activate", () => {
+	if (BrowserWindow.getAllWindows().length === 0) {
+		createWindow();
+	}
+});
