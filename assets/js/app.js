@@ -1,4 +1,4 @@
-//Récuperer les élements du DOM et les stocker dans des variables
+//Récuperer les élements du DOM et les stocker dans des variables du fichier html foodRecipe.html
 let searchBtn = document.getElementById("formSearch");
 let userInput = document.getElementById("searchInput");
 let btnEmpty = document.formMealSearch.myButton.value;
@@ -19,7 +19,7 @@ const ingredientDetailTemplate = document.querySelector(
 	"[modal-ingredient-detail]"
 );
 
-//ajouter listener sur le bouton de search
+//ajouter listener sur le bouton de search au niveau de la barre de recherche de la page principale
 searchBtn.addEventListener("submit", (e) => {
 	e.preventDefault();
 	let searchInput = userInput.value;
@@ -27,7 +27,7 @@ searchBtn.addEventListener("submit", (e) => {
 	userInput.value = "";
 });
 
-// fetch de l'API themealdb
+// fetch de l'API TheMealDb
 async function getMeals(searchInput) {
 	let urlAPI = ` https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`;
 	const apiFetch = await fetch(urlAPI);
@@ -45,15 +45,15 @@ async function getMeals(searchInput) {
 			.setAttribute("src", meal.strMealThumb);
 		foodCard.querySelector("div.card-body > .card-title").innerText =
 			meal.strMeal;
-		//store the meal id and add it as an attribute in the button "food Recipe"
 
+		//store the meal id and add it as an attribute in the button "food Recipe"
 		foodCard
 			.querySelector("div.card-body > button")
 			.setAttribute("id", meal.idMeal);
 		foodCardContainer.append(foodCard);
 	});
 
-	//Retrieve the modal
+	//Retrieve the modal button
 	let showModalBtns = document.getElementsByName("showModalButton");
 
 	//loop for all the modal buttons after the meal search
